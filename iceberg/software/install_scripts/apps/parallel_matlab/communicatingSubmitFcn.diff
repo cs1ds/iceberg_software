@@ -1,0 +1,21 @@
+This is the output from diff command between the communicatingSubmitFcn.m and 
+communicatingSubmitFcn.org in directory (matlab_root)/toolbox/local 
+The changes are made to ensure that iceberg installation of parallel matlab works.
+
+
+12,18d11
+< % Deniz. Sheffield University 
+< % A crude way of passing extra parameters to MATLAB jobs is to 
+< %  (a) define  global sge_params
+< %  (b) and assign a string to it such as sge_params=' -l rmem=4G -l h_rt=16:00:00 '
+< %
+< global sge_params
+< 
+104,107c97
+< additionalSubmitArgs  = sprintf('  -pe matlab %d', numberOfNodes);
+< %
+< %    deniz add extra parameters: 
+<        additionalSubmitArgs = [ ' -l mem=32G -o ./ -e ./  ', sge_params, additionalSubmitArgs ]
+---
+> additionalSubmitArgs  = sprintf('-pe matlab %d', numberOfNodes);
+

@@ -1,0 +1,26 @@
+ Only a few changes have been made to the independentSubmitFcn.m as supplied
+by Mathworks for SGE in order to implement it on iceberg.
+Below is the output from diff between independentSubmitFcn.m and independentSubmitFcn.org 
+in the directory (matlab_root)/toolbox/local.
+
+
+
+12,18c12
+< %
+< % Deniz. Sheffield University 
+< % A crude way of passing extra parameters to MATLAB jobs is to 
+< %  (a) define  global sge_params
+< %  (b) and assign a string to it such as sge_params=' -l rmem=4G -l h_rt=16:00
+:00 '
+< %
+< global sge_params
+---
+> 
+91d84
+<  
+109,112d101
+< 
+<     % deniz added extra parameters for virtual memory and output locations. 
+<        additionalSubmitArgs = [ ' -l mem=32G -o ./ -e ./  ' ,sge_params ];
+<        
+
